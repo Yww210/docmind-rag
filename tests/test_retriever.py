@@ -1,7 +1,14 @@
-from app.rag.pipeline import RAGPipeline
+import pytest
+
+# Mark the whole module as integration tests
+pytestmark = pytest.mark.integration
+
+faiss = pytest.importorskip("faiss")
 
 
 def test_retrieve_after_ingest(tmp_path, monkeypatch):
+    from app.rag.pipeline import RAGPipeline
+
     monkeypatch.setenv("INDEX_DIR", str(tmp_path / "index"))
     p = RAGPipeline()
     p.ingest_text("hello world about neural networks", source="t1")
