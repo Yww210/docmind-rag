@@ -1,0 +1,10 @@
+services:
+  docmind-rag:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - INDEX_DIR=.cache/index
+    volumes:
+      - ./.cache:/app/.cache
+      - ./.env:/app/.env

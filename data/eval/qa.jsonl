@@ -1,0 +1,2 @@
+{"question":"What are the main modules of the RAG system?", "answer":"ingestion chunking embeddings vector search and an API service"}
+{"question":"What are suggested evaluation tips?", "answer":"measure latency and use overlap style metrics and keep modules swappable"}
