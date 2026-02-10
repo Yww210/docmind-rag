@@ -6,11 +6,19 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      LLM_BACKEND: mock
+      EMBEDDING_BACKEND: mock
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install -r requirements.txt
+
+      - run: |
+          pip install --upgrade pip
+          pip install fastapi uvicorn pydantic python-dotenv pytest ruff
+
       - run: ruff check app tests
       - run: pytest -q
