@@ -1,5 +1,7 @@
-from app.config import settings
 import httpx
+
+from app.config import settings
+
 
 class LLM:
     def __init__(self):
@@ -18,13 +20,18 @@ class LLM:
             "temperature": 0.2,
         }
         async with httpx.AsyncClient(timeout=60) as client:
-            r = await client.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
+            r = await client.post(
+                "https://api.openai.com/v1/chat/completions",
+                headers=headers,
+                json=payload,
+            )
             r.raise_for_status()
             data = r.json()
             return data["choices"][0]["message"]["content"].strip()
 
     def _mock(self, prompt: str) -> str:
-        return "MOCK_ANSWER: " + (prompt[:240].replace("\n", " ") + ("..." if len(prompt) > 240 else ""))
+        clipped = prompt[:240].replace("\n", " ")
+        return "MOCK_ANSWER: " + clipped + ("..." if len(prompt) > 240 else "")
 
     def generate(self, prompt: str) -> str:
         if self.backend == "mock":

@@ -1,7 +1,9 @@
 from typing import List, Tuple
+
 from app.config import settings
 from app.rag.embeddings import Embedder
-from app.rag.index import FaissIndex, ChunkRecord
+from app.rag.index import ChunkRecord, FaissIndex
+
 
 class Retriever:
     def __init__(self, index: FaissIndex, embedder: Embedder):

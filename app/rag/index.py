@@ -1,8 +1,11 @@
+import json
+import os
 from dataclasses import dataclass
 from typing import List, Tuple
-import os, json
-import numpy as np
+
 import faiss
+import numpy as np
+
 
 @dataclass
 class ChunkRecord:

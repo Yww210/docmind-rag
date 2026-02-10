@@ -1,8 +1,10 @@
 from typing import List
+
 from app.config import settings
 from app.rag.chunking import chunk_text
 from app.rag.embeddings import Embedder
 from app.rag.index import ChunkRecord, FaissIndex
+
 
 def ingest_text(index: FaissIndex, embedder: Embedder, text: str, source: str) -> int:
     chunks = chunk_text(text, settings.chunk_size, settings.chunk_overlap)

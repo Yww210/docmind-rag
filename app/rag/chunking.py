@@ -1,5 +1,6 @@
 from typing import List
 
+
 def chunk_text(text: str, chunk_size: int = 800, overlap: int = 120) -> List[str]:
     text = text.strip()
     if not text:

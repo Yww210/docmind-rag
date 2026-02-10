@@ -1,12 +1,13 @@
 from typing import List
-import time
+
 from app.config import settings
-from app.schemas import QueryResponse, RetrievedChunk
 from app.rag.embeddings import Embedder
 from app.rag.index import FaissIndex
-from app.rag.retriever import Retriever
 from app.rag.ingest import ingest_text
 from app.rag.llm import LLM
+from app.rag.retriever import Retriever
+from app.schemas import QueryResponse, RetrievedChunk
+
 
 class RAGPipeline:
     def __init__(self):

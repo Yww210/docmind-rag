@@ -1,6 +1,9 @@
 from typing import List
+
 import numpy as np
+
 from app.config import settings
+
 
 class Embedder:
     def __init__(self):

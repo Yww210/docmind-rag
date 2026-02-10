@@ -1,6 +1,7 @@
 from fastapi import FastAPI
-from app.schemas import IngestRequest, IngestResponse, QueryRequest, QueryResponse
+
 from app.rag.pipeline import RAGPipeline
+from app.schemas import IngestRequest, IngestResponse, QueryRequest, QueryResponse
 
 app = FastAPI(title="DocMind-RAG", version="1.0.0")
 pipeline = RAGPipeline()

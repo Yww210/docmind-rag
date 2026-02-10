@@ -1,5 +1,6 @@
 from app.rag.pipeline import RAGPipeline
 
+
 def test_retrieve_after_ingest(tmp_path, monkeypatch):
     monkeypatch.setenv("INDEX_DIR", str(tmp_path / "index"))
     p = RAGPipeline()
